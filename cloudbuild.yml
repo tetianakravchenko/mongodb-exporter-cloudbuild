@@ -10,7 +10,9 @@ steps:
   args: [ '-c', 'make' ]
   entrypoint: /bin/sh
   dir: 'go/src/github.com/percona/mongodb_exporter'
-  env: ['GOPATH=/workspace/go']
+  env:
+  - 'GOPATH=/workspace/go'
+  - 'PATH=/workspace/go/bin:$PATH'
 
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['-c', 'sha256sum mongodb-exporter > mongodb-exporter.sha256']
