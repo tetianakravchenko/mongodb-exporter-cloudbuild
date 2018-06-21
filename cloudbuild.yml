@@ -3,7 +3,7 @@ steps:
   args: ['clone', 'https://github.com/percona/mongodb_exporter']
 
 - name: gcr.io/cloud-builders/git
-  args: ['checkout', '${_RETEASE_TAG}']
+  args: ['checkout', '${_RELEASE_TAG}']
 
 - name: 'gcr.io/cloud-builders/go'
   args: [ '-c', 'make' ]
@@ -14,11 +14,11 @@ steps:
   entrypoint: /bin/bash
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'mongodb-exporter.sha256', 'gs://mongodb-exporter-${_RETEASE_TAG}/']
+  args: ['cp', 'mongodb-exporter.sha256', 'gs://mongodb-exporter-${_RELEASE_TAG}/']
   entrypoint: /bin/bash
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'mongodb-exporter', 'gs://mongodb-exporter-${_RETEASE_TAG}/']
+  args: ['cp', 'mongodb-exporter', 'gs://mongodb-exporter-${_RELEASE_TAG}/']
 
 substitutions:
-    _RELEASE_TAG: 0.6.1
+    _RELEASE_TAG: '0.6.1'
