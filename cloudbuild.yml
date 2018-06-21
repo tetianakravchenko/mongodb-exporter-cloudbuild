@@ -21,4 +21,4 @@ steps:
   args: ['cp', 'mongodb-exporter', 'gs://mongodb-exporter-${_RETEASE_TAG}/']
 
 substitutions:
-  _RELEASE_TAG: 0.6.1
+    _RELEASE_TAG: 0.6.1
