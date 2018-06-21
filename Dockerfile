@@ -12,5 +12,5 @@ RUN sha256sum mongodb_exporter > mongodb_exporter.sha256
 
 FROM gcr.io/cloud-builders/gsutil:latest
 
-COPY --from=0 /go/src/github.com/percona/mongodb_exporter/mongodb_exporter /workspace/mongodb_exporter
-COPY --from=0 /go/src/github.com/percona/mongodb_exporter/mongodb_exporter.sha256 /workspace/mongodb_exporter.sha256
+COPY --from=0 /go/src/github.com/percona/mongodb_exporter/mongodb_exporter /mongodb_exporter
+COPY --from=0 /go/src/github.com/percona/mongodb_exporter/mongodb_exporter.sha256 /mongodb_exporter.sha256
