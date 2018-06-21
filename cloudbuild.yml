@@ -3,7 +3,7 @@ steps:
   args: ['clone', 'https://github.com/percona/mongodb_exporter']
 
 - name: gcr.io/cloud-builders/git
-  args: ['checkout', '${_RELEASE_TAG}']
+  args: ['checkout', 'tags/${_RELEASE_TAG}']
 
 - name: 'gcr.io/cloud-builders/go'
   args: [ '-c', 'make' ]
