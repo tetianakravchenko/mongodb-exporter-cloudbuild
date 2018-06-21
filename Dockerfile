@@ -1,6 +1,6 @@
 FROM golang:1.10
 
-ENV APPPATH /go/src/github.com/percona/mongodb_exporter
+ENV APPPATH $GOPATH/src/github.com/percona/mongodb_exporter
 ENV RELEASE_TAG 0.6.1
 WORKDIR $APPPATH
 
@@ -11,5 +11,5 @@ RUN git clone "https://github.com/percona/mongodb_exporter" "$APPPATH" \
 
 FROM gcr.io/cloud-builders/gsutil:latest
 
-COPY --from=0 /go/src/github.com/percona/mongodb_exporter/mongodb_exporter /mongodb_exporter
-COPY --from=0 /go/src/github.com/percona/mongodb_exporter/mongodb_exporter.sha256 /mongodb_exporter.sha256
+COPY --from=0 $APPPATH/mongodb_exporter /mongodb_exporter
+COPY --from=0 $APPPATH/mongodb_exporter.sha256 /mongodb_exporter.sha256
