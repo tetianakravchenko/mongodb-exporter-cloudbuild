@@ -3,10 +3,10 @@ steps:
   args: ['build', '.']
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'mongodb-exporter.sha256', 'gs://mongodb-exporter/mongodb-exporter-${_RELEASE_TAG}.sha256']
+  args: ['cp', 'mongodb_exporter.sha256', 'gs://mongodb-exporter/mongodb_exporter_${_RELEASE_TAG}.sha256']
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'mongodb-exporter', 'gs://mongodb-exporter/mongodb-exporter-${_RELEASE_TAG}']
+  args: ['cp', 'mongodb_exporter', 'gs://mongodb-exporter/mongodb_exporter_${_RELEASE_TAG}']
 
 substitutions:
     _RELEASE_TAG: '0.6.1'
