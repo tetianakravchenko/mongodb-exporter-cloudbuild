@@ -1,12 +1,3 @@
 steps:
 - name: gcr.io/cloud-builders/docker
   args: ['build', '.']
-
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'mongodb_exporter', 'gs://mongodb-exporter/mongodb_exporter_${_RELEASE_TAG}']
-
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp', 'mongodb_exporter.sha256', 'gs://mongodb-exporter/mongodb_exporter_${_RELEASE_TAG}.sha256']
-
-substitutions:
-    _RELEASE_TAG: '0.6.1'
