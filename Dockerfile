@@ -6,6 +6,8 @@ WORKDIR $APPPATH
 
 RUN git clone "https://github.com/percona/mongodb_exporter" "$APPPATH" \
     && git checkout tags/$RELEASE_TAG \
-    && make all build \
+    && make format build \
     && sha256sum mongodb-exporter > mongodb-exporter.sha256 \
+    && cp mongodb-exporter /workspace \
+    && cp mongodb-exporter.sha256 /workspace \
     && rm -rf "$GOPATH"

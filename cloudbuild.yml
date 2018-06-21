@@ -3,18 +3,10 @@ steps:
   args: ['build', '.']
 
 - name: 'gcr.io/cloud-builders/gsutil'
-  args: ['-c', 'sha256sum mongodb-exporter > mongodb-exporter.sha256']
-  entrypoint: /bin/bash
-  dir: 'go/src/github.com/percona/mongodb_exporter'
-
-- name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', 'mongodb-exporter.sha256', 'gs://mongodb-exporter-${_RELEASE_TAG}/']
-  entrypoint: /bin/bash
-  dir: 'go/src/github.com/percona/mongodb_exporter'
 
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', 'mongodb-exporter', 'gs://mongodb-exporter-${_RELEASE_TAG}/']
-  dir: 'go/src/github.com/percona/mongodb_exporter'
 
 substitutions:
     _RELEASE_TAG: '0.6.1'
