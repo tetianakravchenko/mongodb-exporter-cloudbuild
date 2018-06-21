@@ -7,5 +7,5 @@ WORKDIR $APPPATH
 RUN git clone "https://github.com/percona/mongodb_exporter" "$APPPATH" \
     && git checkout 'checkout', 'tags/${RELEASE_TAG}' \
     && make \
-    && sha256sum mongodb-exporter > mongodb-exporter.sha256
+    && sha256sum mongodb-exporter > mongodb-exporter.sha256 \
     && rm -rf "$GOPATH"
