@@ -1,6 +1,6 @@
 steps:
 - name: gcr.io/cloud-builders/git
-  args: ['clone', 'https://github.com/percona/mongodb_exporter
+  args: ['clone', 'https://github.com/percona/mongodb_exporter']
 
 - name: gcr.io/cloud-builders/git
   args: ['checkout', 'tags/${_RELEASE_TAG}']
