@@ -1,6 +1,6 @@
 steps:
 - name: gcr.io/cloud-builders/docker
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/mongodb_exporter_binary:${_RELEASE_TAG}', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/mongodb_exporter_binary:${_RELEASE_TAG}', './mongodb-exporter']
 
 - name: 'gcr.io/$PROJECT_ID/mongodb_exporter_binary:${_RELEASE_TAG}'
   args: ['cp', '-n', '/mongodb_exporter', 'gs://mongodb-exporter/mongodb_exporter_${_RELEASE_TAG}']
